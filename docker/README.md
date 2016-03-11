@@ -9,7 +9,7 @@ Kinesalite can be found here: [https://github.com/mhart/kinesalite](https://gith
 In order to use this, simply run:
 
 ```bash
-docker run -d -t -p 4567:4567 dlsniper/kinesalite:1.8.0
+docker run -d -t -p 4567:4567 dlsniper/kinesalite:1.11.4
 ```
 
 ##Issues & contributions

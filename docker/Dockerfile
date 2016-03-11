@@ -3,7 +3,7 @@ MAINTAINER Florin Patan
 
 EXPOSE 4567
 
-ENV KINESALITE_VERSION=1.8.0
+ENV KINESALITE_VERSION=1.11.4
 
 RUN apt-get update && apt-get install -y g++ \
         make \
