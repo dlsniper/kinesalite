@@ -1,4 +1,4 @@
-FROM ubuntu:14.04.2
+FROM ubuntu:16.04
 MAINTAINER Florin Patan
 
 EXPOSE 4567
@@ -10,15 +10,15 @@ RUN apt-get update && apt-get install -y g++ \
         python \
         software-properties-common \
         wget
-RUN add-apt-repository -y ppa:chris-lea/node.js && \
-    apt-get update
-RUN apt-get install -y nodejs
+RUN wget -qO- https://deb.nodesource.com/setup_5.x | bash - && \
+    apt-get update && \
+    apt-get install -y nodejs
 RUN wget -O kinesalite.tar.gz https://github.com/mhart/kinesalite/archive/v${KINESALITE_VERSION}.tar.gz && \
     tar -xf kinesalite.tar.gz -C /tmp/ && \
     rm -f /tmp/kinesalite.tar.gz
 WORKDIR /tmp/kinesalite
-RUN npm install -g kinesalite
-RUN apt-get purge -y g++ \
+RUN npm install -g kinesalite && \
+        apt-get purge -y g++ \
         make \
         software-properties-common \
         wget && \
